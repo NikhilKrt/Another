@@ -1,0 +1,28 @@
+<body background="https://images5.alphacoders.com/403/thumb-1920-403408.jpg">
+<div class="container" *ngIf="pHouse">
+<div class="card mb-3 q">
+  <div class="card-header text-center">
+    <h1 class="card-title">{{houseId}} House Deatil</h1>
+    </div>
+    <img class="card-img-top" src="https://img00.deviantart.net/96f9/i/2014/064/4/d/game_of_thrones___houses_by_ozenkalily-d78qd4p.png" alt="Card image cap">
+    <div class="card-body">
+      <p class="card-text"> <b> Name-</b> {{pHouse.name | uppercase }}</p>
+      <hr>
+      <p class="card-text"><b> Region:</b> {{pHouse.region }}</p>
+      <hr>
+      <p class="card-text"><b> CoatOfArms:</b> {{pHouse.coatOfArms }}</p>
+      <hr>
+      <p class="card-text"><b> Words:</b> {{pHouse.words?words:'N/A' }}</p>
+      <hr>
+      <p *ngIf="pHouse.titles.length>0" class="book"><b> Titles:</b> <span *ngFor="let title of pHouse.titles;let first=first;let last=last">{{title?title:'N/A'}}{{last ? '' : ', '}}</span></p>
+      <hr>
+      <p *ngIf="pHouse.seats.length>0" class="book"><b> Seats:</b> <span *ngFor="let seat of pHouse.seats;let first=first;let last=last">{{seat?seat:'N/A'}}{{last ? '' : ', '}}</span></p>
+      <hr>
+      <div class="card-footer text-center">
+          <button type="button" class="btn btn-lg btn-block btn-outline-danger" (click)="goBack()"><b><</b> Back</button>
+        </div>
+    </div>
+  </div>
+  </div>
+  </body>
+  

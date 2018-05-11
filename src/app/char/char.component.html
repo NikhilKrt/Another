@@ -1,0 +1,28 @@
+<body background="http://malice-corp.com/wp-content/uploads/2017/09/3051694-game-of-thrones-characters_091710.jpg">
+<div  class="container" *ngIf="nChar">
+    <div class="card mb-3 q">
+      <div class="card-header text-center">
+        <h1 class="card-title">Character Deatils</h1>
+        </div>
+        <img class="card-img-top" src="https://i.imgur.com/p0drsD7.jpg" alt="Card image cap">
+        <div class="card-body">
+          <p class="card-text"> <b> Name-</b> {{nChar.name?nChar.name:'N/A' | uppercase }}</p>
+          <hr>
+          <p class="card-text"><b> Gender:</b> {{nChar.gender }}</p>
+          <hr>
+          <p class="card-text"><b> Born:</b> {{nChar.culture?nChar.culture:'N/A' }}</p>
+          <hr>
+          <p *ngIf="nChar.aliases.length>0" class="book"><b> Alises:</b> <span *ngFor="let title of nChar.alises;let first=first;let last=last">{{title?title:'N/A'}}{{last ? '' : ', '}}</span></p>
+          <hr>
+          <p *ngIf="nChar.playedBy.length>0" class="book"><b> Played:</b> <span *ngFor="let seat of nChar.playedBy;let first=first;let last=last">{{seat?seat:'N/A'}}{{last ? '' : ', '}}</span></p>
+          <hr>          
+          <p *ngIf="nChar.tvSeries.length>0" class="book"><b> Tv Series:</b> <span *ngFor="let seat of nChar.tvSeries;let first=first;let last=last">{{seat?seat:'N/A'}}{{last ? '' : ', '}}</span></p>
+          <hr>
+          <div class="card-footer text-center">
+              <button type="button" class="btn btn-lg btn-block btn-outline-danger" (click)="goBack()"><b><</b> Back</button>
+            </div>
+        </div>
+      </div>
+      </div>
+      </body>
+      

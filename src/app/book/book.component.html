@@ -1,0 +1,33 @@
+<body background="http://cdn2us.denofgeek.com/sites/denofgeekus/files/styles/main_wide/public/asoiaf_books.jpg?itok=S5wAG5GU">
+  <div class="container" *ngIf="nBook">
+    <div class="card mb-3 q">
+      <div class="card-header text-center">
+        <h1 class="card-title">{{id}} Book Deatil</h1>
+        </div>
+        <img class="card-img-top" src="https://2d5nep2aya983psxvw3nw0l9-wpengine.netdna-ssl.com/wp-content/uploads/2016/07/RHGT5-game-thrones-blood-red-front-1200.jpg" alt="Card image cap">
+        <div class="card-body">
+          <p class="card-text"> <b> Name- </b> {{nBook.name ? nBook.name:'N/A' | uppercase }}</p>
+          <hr>
+          <p *ngIf="nBook.authors.length >0" class="card-text"><b> Authors:</b> 
+            <span *ngFor="let auther of nBook.authors">{{author}}</span>
+          </p>
+          <hr>
+          <p class="card-text"><b> Isbn:</b> {{nBook.isbn}}</p>
+          <hr>
+          <p class="card-text"><b> Pages: </b> {{nBook.numberOfPages}}</p>
+          <hr>
+          <p class="card-text"><b> Publisher:</b> {{nBook.publisher}}</p>
+          <hr>
+          <p class="card-text"><b> Country:</b> {{nBook.country}}</p>
+          <hr>
+          <p class="card-text"><b> Media Type:</b> {{nBook.mediaType}}</p>
+          <hr>
+          <p class="card-text" style="text-align: center"><small class="text-muted"><b> Released: </b>  {{nBook.released | date }}</small></p>
+          <div class="card-footer text-center">
+              <button type="button" class="btn btn-lg btn-block btn-outline-danger" (click)="goBack()"><b><</b> Back</button>
+            </div>
+        </div>
+      </div>
+      </div>
+      </body>
+      

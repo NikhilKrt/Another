@@ -1,0 +1,75 @@
+<body background="https://images4.alphacoders.com/242/thumb-1920-242556.png">
+  
+
+<div class="container">
+  <div class="row"></div>
+<nav class="navbar rounded navbar-warning bg-warning">
+    <form class="form-inline">
+      <input class="form-control form-control-lg" type="text" [(ngModel)]="search" [ngModelOptions]="{standalone: true}" placeholder="Search" aria-label="Search">
+
+    </form>
+  </nav>
+  <br><br>
+  <div class="row" style="text-align:center" *ngIf="sab.length>0">
+  
+      <div *ngFor="let data of sab | filter:search" class="col-md-4">
+    
+        <div class="col-md-12" *ngIf="data.isbn ">
+          <div class="card-deck">
+            <div class="card v" style="width: 18rem;">
+              <div class="card-header">
+                <h4 class="card-title"><b> Book</b></h4>
+                </div>
+                <img class="card-img-top" src="https://2d5nep2aya983psxvw3nw0l9-wpengine.netdna-ssl.com/wp-content/uploads/2016/07/RHGT5-game-thrones-blood-red-front-1200.jpg" alt="Card image cap">
+                <div class="card-body">              
+                  <p class="card-text"><b> Book Name</b> {{data.name}}</p>
+                  <p><b> Writter</b> {{data.publisher}}</p>
+                  <a [routerLink]="['/book',getItemId(data)]" class="btn btn-lg btn-block btn-outline-danger">Expand</a>
+                 
+                </div>
+              </div>
+              </div>
+        </div>
+        
+        <div class="col-md-12" *ngIf="data.gender ">
+          <div class="card-deck">
+            <div class="card v" style="width: 18rem;">
+              <div class="card-header">
+                <h4 class="card-title"><b> Character</b></h4>
+                </div>
+                <img class="card-img-top" src="https://i.imgur.com/p0drsD7.jpg" alt="Card image cap">
+                <div class="card-body">              
+                  <p class="card-text"><b> Name -</b> {{data.name?data.name:data.aliases[0]}}</p>
+                  
+                  <a [routerLink]="['/character',getItemId(data)]" class="btn btn-lg btn-block btn-outline-danger">Expand</a>
+                  
+                </div>
+              </div>
+              </div>
+        </div>
+
+        <div class="col-md-12" *ngIf="data.region || data.coatOfArms ">
+          <div class="card-deck">
+            <div class="card v" style="width: 18rem;">
+              <div class="card-header">
+                <h4 class="card-title"><b> House</b></h4>
+                </div>
+                <img class="card-img-top" src="https://img00.deviantart.net/96f9/i/2014/064/4/d/game_of_thrones___houses_by_ozenkalily-d78qd4p.png" alt="Card image cap">
+                <div class="card-body">              
+                  <p class="card-text"><b> Name -</b> {{data.name}}</p>
+                  <p><b> Region - </b>{{data.region}}
+                  <br>
+                  </p>
+                  <a [routerLink]="['/house',getItemId(data)]" class="btn btn-lg btn-block btn-outline-danger">Expand</a>
+                 
+                </div>
+              </div>
+              </div>
+        </div>
+        <br><br>
+
+      </div>
+    </div>
+<br>
+  </div>
+  </body>
